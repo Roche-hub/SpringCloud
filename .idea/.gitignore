@@ -1,0 +1,21 @@
+# Compiled output
+target/
+out/
+
+# IDE files
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Log files
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Local configuration
+.idea/workspace.xml
+.idea/libraries/
+.idea/httpRequests/
