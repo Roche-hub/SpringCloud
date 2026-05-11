@@ -1,4 +1,4 @@
-package com.itstudy.product.service;
+package com.itstudy.order.service;
 
 
 import com.itstudy.order.bean.Order;

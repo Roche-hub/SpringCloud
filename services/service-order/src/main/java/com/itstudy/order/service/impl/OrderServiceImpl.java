@@ -1,14 +1,16 @@
-package com.itstudy.product.service.impl;
+package com.itstudy.order.service.impl;
 
 
 import com.itstudy.order.bean.Order;
+import com.itstudy.order.feign.ProductFeignClient;
 import com.itstudy.product.bean.Product;
-import com.itstudy.product.service.OrderService;
+import com.itstudy.order.service.OrderService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
+import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -26,10 +28,14 @@ public class OrderServiceImpl implements OrderService {
     DiscoveryClient discoveryClient;
     @Autowired
     LoadBalancerClient loadBalancerClient;
+
+    @Autowired
+    ProductFeignClient productFeignClient;
     @Override
     public Order createOrder(Long productId, Long userId) {
 
-        Product product = ProductGetProductFromRemoteBalancerAnnotation(productId);
+        //Product product = ProductGetProductFromRemoteBalancerAnnotation(productId);
+        Product product = productFeignClient.getProductByID(productId);
 
         Order order = new Order();
         order.setId(1L);

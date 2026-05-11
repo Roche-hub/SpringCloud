@@ -1,4 +1,4 @@
-package com.itstudy.product.config;
+package com.itstudy.order.config;
 
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
