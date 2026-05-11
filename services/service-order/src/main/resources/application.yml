@@ -6,9 +6,14 @@ server:
       force: true
   port: 8000
 
+logging:
+  level:
+    com.itstudy.order.feign: debug
+
 spring:
   profiles:
     active: test
+    include: feign
   application:
     name: service-order
   cloud:
