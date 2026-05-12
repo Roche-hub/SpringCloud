@@ -16,10 +16,6 @@ public class ProductServiceConfig {
         return new RestTemplate();
     }
 
-    @Bean
-    Logger.Level feignLoggerLevel(){
-        return Logger.Level.FULL;
-    }
 
     @Bean
     Retryer retryer(){

@@ -18,11 +18,6 @@ public class ProductServiceImpl implements ProductService {
         product.setProductName("苹果" + product.getId());
         product.setNum(Math.toIntExact(id));
 
-        try {
-            TimeUnit.SECONDS.sleep(100);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
         return product;
 
 
