@@ -7,6 +7,10 @@ spring:
             logger-level: full
             connect-timeout: 3000
             read-timeout: 5000
+    sentinel:
+      transport:
+        dashboard: localhost:8080
+      eager: true
 
 feign:
   sentinel:

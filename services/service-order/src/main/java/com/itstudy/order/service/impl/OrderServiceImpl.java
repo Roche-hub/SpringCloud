@@ -1,6 +1,7 @@
 package com.itstudy.order.service.impl;
 
 
+import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import com.itstudy.order.bean.Order;
 import com.itstudy.order.feign.ProductFeignClient;
 import com.itstudy.product.bean.Product;
@@ -31,6 +32,8 @@ public class OrderServiceImpl implements OrderService {
 
     @Autowired
     ProductFeignClient productFeignClient;
+
+    @SentinelResource(value = "createOrder", blockHandler = "")
     @Override
     public Order createOrder(Long productId, Long userId) {
 

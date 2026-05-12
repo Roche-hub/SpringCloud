@@ -18,11 +18,6 @@ public class ProductController {
 
     @GetMapping("/product/{id}")
     public Product getProduct(@PathVariable Long id, HttpServletRequest httpServletRequest){
-        try {
-            TimeUnit.SECONDS.sleep(50);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
         String header = httpServletRequest.getHeader("X-Token");
         System.out.println("Token : " + header);
         return productService.getProduct(id);
