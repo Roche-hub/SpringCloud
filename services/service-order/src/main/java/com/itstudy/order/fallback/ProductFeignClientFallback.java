@@ -13,7 +13,7 @@ public class ProductFeignClientFallback implements ProductFeignClient {
         Product product = new Product();
         product.setId(id);
         product.setPrice(new BigDecimal("99"));
-        product.setProductName("未知商品" + product.getId());
+        product.setProductName("FeignClient 调用异常：" + product.getId());
         product.setNum(Math.toIntExact(id));
         return product;
 
