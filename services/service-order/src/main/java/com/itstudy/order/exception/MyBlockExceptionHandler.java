@@ -17,15 +17,15 @@ public class MyBlockExceptionHandler implements BlockExceptionHandler {
     @Autowired
     private ObjectMapper objectMapper;
     @Override
-    public void handle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse,
+    public void handle(HttpServletRequest Request, HttpServletResponse Response,
                        String s, BlockException e) throws Exception {
+        Response.setStatus(429);
 
 
+        PrintWriter writer = Response.getWriter();
+        Response.setContentType("application/json;charset=utf-8");
 
-        PrintWriter writer = httpServletResponse.getWriter();
-        httpServletResponse.setContentType("application/json;charset=utf-8");
-
-        R error = R.error(599, s + "被Sentinel限制了，原因是：" + e.getClass());
+        R error = R.error(429, s + "被Sentinel限制了，原因是：" + e.getClass());
 
         String json = objectMapper.writeValueAsString(error);
 

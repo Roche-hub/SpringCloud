@@ -2,7 +2,6 @@ package com.itstudy.order.fallback;
 
 import com.itstudy.order.feign.ProductFeignClient;
 import com.itstudy.product.bean.Product;
-import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
