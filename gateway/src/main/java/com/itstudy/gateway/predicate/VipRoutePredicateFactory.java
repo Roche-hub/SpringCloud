@@ -1,5 +1,7 @@
-package com.itstudy.gateway.com.itstudy.gateway;
+package com.itstudy.gateway.predicate;
 
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.cloud.gateway.handler.predicate.AbstractRoutePredicateFactory;
 import org.springframework.cloud.gateway.handler.predicate.GatewayPredicate;
 import org.springframework.http.server.reactive.ServerHttpRequest;
@@ -26,7 +28,6 @@ public class VipRoutePredicateFactory extends AbstractRoutePredicateFactory<VipR
     @Override
     public Predicate<ServerWebExchange> apply(Config config) {
 
-
         return new GatewayPredicate() {
             @Override
             public boolean test(ServerWebExchange serverWebExchange) {
@@ -37,25 +38,12 @@ public class VipRoutePredicateFactory extends AbstractRoutePredicateFactory<VipR
         };
     }
 
+    @Setter
+    @Getter
     public static class Config{
         private String param;
         private String value;
 
-        public String getParam() {
-            return param;
-        }
-
-        public void setParam(String param) {
-            this.param = param;
-        }
-
-        public String getValue() {
-            return value;
-        }
-
-        public void setValue(String value) {
-            this.value = value;
-        }
     }
 
 
