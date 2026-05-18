@@ -2,6 +2,14 @@ spring:
   cloud:
     gateway:
       routes:
+        - id: bing-route
+          uri: https://cn.bing.com/
+          predicates:
+              - name: Vip
+                args:
+                  param: user
+                  value: luo
+
         - id: order-route
           uri: lb://service-order
           predicates:
